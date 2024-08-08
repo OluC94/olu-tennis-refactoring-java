@@ -20,3 +20,14 @@
   - Extract the duplicated switch statements to their own function
   - Got rid of redundant variables and return directly from the condition blocks
   - Extract the end game if-else block to its own function
+
+## Tennis Game 1
+
+- got rid of hard-coded player names
+- made player name variables final
+- fixed the poor formatting and indentation
+- renamed the scoring variables from m_score1 to player1Score
+- wonPoint function
+  - use playerName.equals()
+- getScore function
+  - extract switch statement for draws into its own function
