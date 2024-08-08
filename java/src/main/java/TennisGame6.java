@@ -66,21 +66,9 @@ public class TennisGame6 implements TennisGame {
             // regular score
             String regularScore;
 
-            String score1 =  switch (player1Score)
-            {
-                case 0 -> "Love";
-                case 1 -> "Fifteen";
-                case 2 -> "Thirty";
-                default -> "Forty";
-            };
+            String score1 =  determineScoreText(player1Score);
 
-            var score2 =  switch (player2Score)
-            {
-                case 0 -> "Love";
-                case 1 -> "Fifteen";
-                case 2 -> "Thirty";
-                default -> "Forty";
-            };
+            String score2 =  determineScoreText(player2Score);
 
             regularScore = score1 + "-" + score2;
 
@@ -88,5 +76,15 @@ public class TennisGame6 implements TennisGame {
         }
 
         return result;
+    }
+
+    private String determineScoreText(int score) {
+        return switch (score)
+        {
+            case 0 -> "Love";
+            case 1 -> "Fifteen";
+            case 2 -> "Thirty";
+            default -> "Forty";
+        };
     }
 }
