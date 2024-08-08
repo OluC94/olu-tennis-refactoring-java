@@ -17,6 +17,7 @@ public class TennisGame6 implements TennisGame {
             player2Score++;
     }
 
+    @Override
     public String getScore()
     {
         if (player1Score == player2Score)

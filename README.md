@@ -16,6 +16,7 @@
 ## Tennis Game 6
 
 - getScore function
+  - add override label
   - change var keyword to String
   - Extract the duplicated switch statements to their own function
   - Got rid of redundant variables and return directly from the condition blocks
