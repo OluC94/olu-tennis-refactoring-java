@@ -15,67 +15,47 @@ public class TennisGame6 implements TennisGame {
             player1Score++;
         else
             player2Score++;
-
     }
 
     public String getScore()
     {
-        String result;
-
         if (player1Score == player2Score)
         {
-            // tie score
-            String tieScore;
-            switch (player1Score)
-            {
-                case 0:
-                    tieScore = "Love-All";
-                    break;
-                case 1:
-                    tieScore = "Fifteen-All";
-                    break;
-                case 2:
-                    tieScore = "Thirty-All";
-                    break;
-                default:
-                    tieScore = "Deuce";
-                    break;
-            }
-
-            result = tieScore;
+            return determineTieScoreText(player1Score);
         }
         else if (player1Score >= 4 || player2Score >= 4)
         {
-            // end-game score
-            String endGameScore;
-
-            if (player1Score - player2Score == 1) {
-                endGameScore = "Advantage " + player1Name;
-            } else if (player1Score - player2Score == -1) {
-                endGameScore = "Advantage " + player2Name;
-            } else if (player1Score - player2Score >= 2) {
-                endGameScore = "Win for " + player1Name;
-            } else {
-                endGameScore = "Win for " + player2Name;
-            }
-
-            result = endGameScore;
+            return determineEndGameScore();
         }
         else
         {
-            // regular score
-            String regularScore;
-
             String score1 =  determineScoreText(player1Score);
-
             String score2 =  determineScoreText(player2Score);
 
-            regularScore = score1 + "-" + score2;
-
-            result = regularScore;
+            return score1 + "-" + score2;
         }
 
-        return result;
+    }
+
+    private String determineTieScoreText(int score){
+        return switch (score) {
+            case 0 -> "Love-All";
+            case 1 -> "Fifteen-All";
+            case 2 -> "Thirty-All";
+            default -> "Deuce";
+        };
+    }
+
+    private String determineEndGameScore() {
+        if (player1Score - player2Score == 1) {
+            return "Advantage " + player1Name;
+        } else if (player1Score - player2Score == -1) {
+            return "Advantage " + player2Name;
+        } else if (player1Score - player2Score >= 2) {
+            return "Win for " + player1Name;
+        } else {
+            return "Win for " + player2Name;
+        }
     }
 
     private String determineScoreText(int score) {

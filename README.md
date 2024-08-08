@@ -18,3 +18,5 @@
 - getScore function
   - change var keyword to String
   - Extract the duplicated switch statements to their own function
+  - Got rid of redundant variables and return directly from the condition blocks
+  - Extract the end game if-else block to its own function
