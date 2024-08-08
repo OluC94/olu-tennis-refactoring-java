@@ -1,3 +1,5 @@
+Please see top-level README for my notes
+
 # Tennis Refactoring Kata - Java Version
 
 This is the Java version of the [Tennis Refactoring Kata](../README.md).
