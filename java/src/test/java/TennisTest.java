@@ -102,4 +102,19 @@ public class TennisTest {
         TennisGame game = new TennisGame6("player1", "player2");
         checkAllScores(player1Points, player2Points, expectedScore, game);
     }
+
+    @org.junit.jupiter.api.Test
+    public void simplestTestOfVersion3() {
+        TennisGame3 game = new TennisGame3("player1", "player2");
+        game.wonPoint("player1");         //(it'd now be "Fifteen-Love")
+        game.wonPoint("player1");         //(it'd now be "Thirty-Love")
+        game.wonPoint("player1");         //(...if we asked!)
+        assertEquals("Forty-Love", game.getScore());
+        //continuing...
+        game.wonPoint("player2");
+        game.wonPoint("player2");
+        game.wonPoint("player1");
+        assertEquals("Win for player1", game.getScore());
+    }
+
 }
