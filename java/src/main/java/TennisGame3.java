@@ -1,35 +1,36 @@
+import java.util.Objects;
 
 public class TennisGame3 implements TennisGame {
-    
-    private int p2;
-    private int p1;
-    private String p1N;
-    private String p2N;
 
-    public TennisGame3(String p1N, String p2N) {
-        this.p1N = p1N;
-        this.p2N = p2N;
+    private int p1score;
+    private int p2score;
+    private String p1Name;
+    private String p2Name;
+
+    public TennisGame3(String p1Name, String p2Name) {
+        this.p1Name = p1Name;
+        this.p2Name = p2Name;
     }
 
     public String getScore() {
-        String s;
-        if (p1 < 4 && p2 < 4 && !(p1 + p2 == 6)) {
+        String scoreOutput;
+        if (p1score < 4 && p2score < 4 && !(p1score + p2score == 6)) {
             String[] p = new String[]{"Love", "Fifteen", "Thirty", "Forty"}; 
-            s = p[p1];
-            return (p1 == p2) ? s + "-All" : s + "-" + p[p2];
+            scoreOutput = p[p1score];
+            return (p1score == p2score) ? scoreOutput + "-All" : scoreOutput + "-" + p[p2score];
         } else {
-            if (p1 == p2)
+            if (p1score == p2score)
                 return "Deuce";
-            s = p1 > p2 ? p1N : p2N;
-            return ((p1-p2)*(p1-p2) == 1) ? "Advantage " + s : "Win for " + s;
+            scoreOutput = p1score > p2score ? p1Name : p2Name;
+            return ((p1score-p2score)*(p1score-p2score) == 1) ? "Advantage " + scoreOutput : "Win for " + scoreOutput;
         }
     }
     
     public void wonPoint(String playerName) {
-        if (playerName == "player1")
-            this.p1 += 1;
+        if (Objects.equals(playerName, "player1"))
+            this.p1score += 1;
         else
-            this.p2 += 1;
+            this.p2score += 1;
         
     }
 
